@@ -12,14 +12,14 @@ import { motion } from "framer-motion";
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-  
+
   const tax = cart.subtotal * 0.07; // 7% tax
   const shipping = cart.itemCount > 0 ? 5.99 : 0; // Shipping fee
   const total = cart.subtotal + tax + shipping;
 
   const handleCheckout = () => {
     setIsCheckingOut(true);
-    
+
     // Simulate checkout process
     setTimeout(() => {
       clearCart();
@@ -42,19 +42,22 @@ export default function CartPage() {
         </motion.div>
 
         {cart.items.length === 0 ? (
-          <motion.div 
+          <motion.div
             className="text-center py-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.2 }}
           >
             <div className="flex justify-center mb-4">
-              <ShoppingBag size={64} className="text-muted-foreground opacity-40" />
+              <ShoppingBag
+                size={64}
+                className="text-muted-foreground opacity-40"
+              />
             </div>
             <h2 className="text-2xl font-light mb-4">Your cart is empty</h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-              Looks like you haven't added any products to your cart yet.
-              Browse our collection and find something you'll love.
+              Looks like you haven&apos;t added any products to your cart yet.
+              Browse our collection and find something you&apos;ll love.
             </p>
             <Button asChild>
               <Link href="/">Continue Shopping</Link>
@@ -63,7 +66,7 @@ export default function CartPage() {
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
             {/* Cart Items */}
-            <motion.div 
+            <motion.div
               className="md:col-span-2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -88,7 +91,7 @@ export default function CartPage() {
                     </div>
                     <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div>
-                        <Link 
+                        <Link
                           href={`/product/${item.id}`}
                           className="font-medium hover:text-primary transition-colors"
                         >
@@ -101,23 +104,32 @@ export default function CartPage() {
                           ${(item.price * item.quantity).toFixed(2)}
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center gap-4">
                         <div className="flex items-center border rounded-md">
                           <Button
                             variant="ghost"
                             size="icon"
                             className="h-8 w-8 rounded-none"
-                            onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                            onClick={() =>
+                              updateQuantity(
+                                item.id,
+                                Math.max(1, item.quantity - 1)
+                              )
+                            }
                           >
                             <Minus size={14} />
                           </Button>
-                          <span className="w-10 text-center">{item.quantity}</span>
+                          <span className="w-10 text-center">
+                            {item.quantity}
+                          </span>
                           <Button
                             variant="ghost"
                             size="icon"
                             className="h-8 w-8 rounded-none"
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity + 1)
+                            }
                           >
                             <Plus size={14} />
                           </Button>
@@ -147,7 +159,7 @@ export default function CartPage() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <h2 className="text-xl font-medium mb-6">Order Summary</h2>
-                  
+
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Subtotal</span>
@@ -161,16 +173,16 @@ export default function CartPage() {
                       <span className="text-muted-foreground">Shipping</span>
                       <span>${shipping.toFixed(2)}</span>
                     </div>
-                    
+
                     <div className="h-px w-full bg-border my-4"></div>
-                    
+
                     <div className="flex justify-between font-medium text-lg">
                       <span>Total</span>
                       <span>${total.toFixed(2)}</span>
                     </div>
                   </div>
-                  
-                  <Button 
+
+                  <Button
                     className="w-full mt-6 gap-2"
                     onClick={handleCheckout}
                     disabled={isCheckingOut}
@@ -178,7 +190,7 @@ export default function CartPage() {
                     {isCheckingOut ? "Processing..." : "Checkout"}
                     {!isCheckingOut && <ArrowRight size={16} />}
                   </Button>
-                  
+
                   <div className="mt-6 text-xs text-center text-muted-foreground">
                     By checking out, you agree to our{" "}
                     <Link href="/terms-of-service" className="underline">

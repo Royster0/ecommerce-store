@@ -30,6 +30,7 @@ export const Navbar = () => {
   useEffect(() => {
     // Initialize the text shadow based on scroll position and current page
     setTextShadowClass(!scrolled && isHomePage ? "text-shadow-sm" : "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHomePage]);
 
   useEffect(() => {
