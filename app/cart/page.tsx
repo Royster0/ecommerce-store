@@ -37,7 +37,7 @@ export default function CartPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h1 className="text-3xl font-light mb-4">Your Cart</h1>
+          <h1 className="text-3xl font-medium mb-4 font-display">Your Cart</h1>
           <div className="h-0.5 w-full max-w-xs bg-secondary"></div>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function CartPage() {
                 className="text-muted-foreground opacity-40"
               />
             </div>
-            <h2 className="text-2xl font-light mb-4">Your cart is empty</h2>
+            <h2 className="text-2xl font-medium mb-4 font-display">Your cart is empty</h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Looks like you haven&apos;t added any products to your cart yet.
               Browse our collection and find something you&apos;ll love.
@@ -158,7 +158,7 @@ export default function CartPage() {
             >
               <Card className="sticky top-24">
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-medium mb-6">Order Summary</h2>
+                  <h2 className="text-xl font-medium mb-6 font-display">Order Summary</h2>
 
                   <div className="space-y-3">
                     <div className="flex justify-between">

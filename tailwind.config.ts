@@ -20,7 +20,21 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'Open Sans',
+  				'Montserrat',
+  				'system-ui',
+  				'sans-serif'
+  			],
+  			serif: [
+  				'Bodoni Moda',
+  				'serif'
+  			],
+  			display: [
+  				'Bodoni Moda',
+  				'serif'
+  			],
+  			body: [
+  				'Montserrat',
+  				'system-ui',
   				'sans-serif'
   			]
   		},
@@ -67,9 +81,9 @@ const config: Config = {
   			}
   		},
   		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			lg: '0',
+  			md: '0',
+  			sm: '0'
   		},
   		keyframes: {
   			'accordion-down': {

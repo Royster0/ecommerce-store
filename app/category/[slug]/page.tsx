@@ -159,7 +159,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-light mb-4">{categoryName}</h1>
+          <h1 className="text-4xl font-medium mb-4 font-display">{categoryName}</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover our curated collection of{" "}
             {slug === "featured" ? "featured items" : slug} crafted with premium

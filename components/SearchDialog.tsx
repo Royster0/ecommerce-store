@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
@@ -10,6 +10,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { featuredProducts, Product } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
 
 interface SearchDialogProps {
   className?: string;
@@ -87,12 +88,15 @@ export function SearchDialog({ className }: SearchDialogProps) {
           </Button>
         </DialogTrigger>
         <span className="hidden sm:flex items-center text-xs text-muted-foreground ml-1">
-          <kbd className="flex h-5 items-center gap-0.5 rounded border px-1.5 text-[10px] font-medium">
+          <kbd className="flex h-5 items-center gap-0.5 border px-1.5 text-[10px] font-medium">
             <span className="text-xs">⌘</span>K
           </kbd>
         </span>
       </div>
       <DialogContent className="sm:max-w-[600px] p-0 dark:border-gray-800 dark:bg-[#1a1b1e]">
+        <DialogTitle asChild>
+          <VisuallyHidden>Search Products</VisuallyHidden>
+        </DialogTitle>
         <div className="relative flex items-center p-4 border-b dark:border-gray-800">
           <Search className="h-5 w-5 absolute left-6 text-muted-foreground" />
           <Input
@@ -138,9 +142,9 @@ export function SearchDialog({ className }: SearchDialogProps) {
                     <Link
                       href={`/product/${product.id}`}
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-4 p-2 rounded-lg hover:bg-accent group"
+                      className="flex items-center gap-4 p-2 hover:bg-accent group"
                     >
-                      <div className="relative h-16 w-16 rounded-md overflow-hidden bg-secondary">
+                      <div className="relative h-16 w-16 overflow-hidden bg-secondary">
                         <Image
                           src={product.image}
                           alt={product.name}

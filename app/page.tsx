@@ -70,7 +70,7 @@ export default function HomePage() {
             <AnimatePresence mode="wait">
               <motion.h1
                 key={`title-${currentImageIndex}`}
-                className="text-4xl md:text-6xl font-light mb-6"
+                className="text-4xl md:text-6xl font-medium mb-6 font-display"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
@@ -102,14 +102,14 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-black hover:bg-white/90"
+                className="bg-white text-forest-green hover:bg-white/90 border border-forest-green/20"
               >
                 <Link href="/category/featured">Explore Collection</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-black hover:bg-white/80"
+                className="bg-forest-green text-white hover:bg-forest-green/90"
               >
                 <Link href="/about">Our Story</Link>
               </Button>
@@ -124,7 +124,7 @@ export default function HomePage() {
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-2 h-2 transition-all ${
                   currentImageIndex === index ? "bg-white w-6" : "bg-white/50"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -144,8 +144,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-light mb-4">Featured Collection</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Featured Collection</h2>
+            <p className="text-earth-gray dark:text-gray-400 max-w-xl mx-auto">
               Curated pieces that define modern elegance and timeless style,
               crafted with exceptional materials and attention to detail.
             </p>
@@ -174,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* Collections Showcase */}
-      <section className="py-20 px-6 bg-secondary">
+      <section className="py-20 px-6 bg-beige dark:bg-deep-forest">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -183,8 +183,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-light mb-4">Shop By Category</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Shop By Category</h2>
+            <p className="text-earth-gray dark:text-gray-400 max-w-xl mx-auto">
               Explore our curated collections for every occasion and style
               preference.
             </p>
@@ -195,7 +195,7 @@ export default function HomePage() {
               (category, index) => (
                 <motion.div
                   key={category}
-                  className="relative overflow-hidden rounded-lg aspect-[3/4] group"
+                  className="relative overflow-hidden aspect-[3/4] group border border-forest-green/20 dark:border-forest-green/20"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -208,7 +208,7 @@ export default function HomePage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-medium mb-2">
+                    <h3 className="text-white text-xl font-medium mb-2 font-display">
                       {category}
                     </h3>
                     <Link
@@ -232,7 +232,7 @@ export default function HomePage() {
       {/* Newsletter & Special Offer */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-primary/5 rounded-2xl p-10 md:p-16">
+          <div className="bg-beige p-10 md:p-16 border border-forest-green/20 dark:bg-deep-forest dark:border-forest-green/20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -240,8 +240,8 @@ export default function HomePage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-light mb-4">Join Our Community</h2>
-                <p className="mb-6 text-muted-foreground">
+                <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Join Our Community</h2>
+                <p className="mb-6 text-earth-gray dark:text-gray-400">
                   Subscribe to our newsletter and be the first to know about new
                   collections, exclusive offers, and styling inspiration.
                 </p>
@@ -249,27 +249,27 @@ export default function HomePage() {
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="bg-background px-4 py-3 rounded-md flex-grow focus:outline-none border"
+                    className="bg-white dark:bg-gray-800 px-4 py-3 flex-grow focus:outline-none border border-forest-green/20 dark:border-forest-green/20"
                     required
                   />
-                  <Button type="submit">Subscribe</Button>
+                  <Button type="submit" className="bg-forest-green text-white hover:bg-forest-green/90 dark:bg-forest-dark">Subscribe</Button>
                 </form>
               </motion.div>
 
               <motion.div
-                className="bg-primary/10 p-8 rounded-xl text-center"
+                className="bg-warm-tan p-8 border border-forest-green/20 text-center dark:bg-forest-dark dark:border-forest-green/20"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-medium mb-2">First Order Offer</h3>
-                <p className="text-5xl font-light mb-4">20% OFF</p>
-                <p className="mb-6 text-sm text-muted-foreground">
-                  Use code <span className="font-medium">WELCOME20</span> at
+                <h3 className="text-xl font-medium mb-2 font-display text-forest-green dark:text-sage-green">First Order Offer</h3>
+                <p className="text-5xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">20% OFF</p>
+                <p className="mb-6 text-sm text-earth-gray dark:text-gray-400">
+                  Use code <span className="font-medium text-forest-green dark:text-sage-green">WELCOME20</span> at
                   checkout
                 </p>
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="border-forest-green text-forest-green hover:bg-forest-green hover:text-white dark:border-sage-green dark:text-sage-green dark:hover:bg-sage-green dark:hover:text-deep-forest">
                   <Link href="/category/featured">Shop Now</Link>
                 </Button>
               </motion.div>

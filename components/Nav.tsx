@@ -62,14 +62,14 @@ export const Navbar = () => {
 
   const darkNavbarVariants = {
     top: {
-      backgroundColor: "rgba(0, 0, 0, 0)",
+      backgroundColor: "rgba(30, 41, 35, 0)",
       boxShadow: "none",
       borderBottom: "none",
     },
     scrolled: {
-      backgroundColor: "rgba(26, 27, 30, 0.9)",
+      backgroundColor: "rgba(30, 41, 35, 0.9)",
       boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-      borderBottom: "1px solid rgba(42, 43, 47, 0.8)",
+      borderBottom: "1px solid rgba(47, 76, 57, 0.3)",
     },
   };
 
@@ -78,6 +78,7 @@ export const Navbar = () => {
     { name: "Pants", path: "/category/pants" },
     { name: "Hoodies", path: "/category/hoodies" },
     { name: "Accessories", path: "/category/accessories" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -97,8 +98,8 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <motion.div
-            className={`text-2xl font-semibold tracking-tight ${
-              isHomePage && !scrolled ? "text-white" : ""
+            className={`text-2xl font-semibold tracking-tight font-display ${
+              isHomePage && !scrolled ? "text-white" : "text-forest-green dark:text-sage-green"
             }`}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,7 +123,7 @@ export const Navbar = () => {
               className={`text-sm font-medium transition-colors ${
                 isHomePage && !scrolled
                   ? "hover:text-gray-200"
-                  : "hover:text-primary"
+                  : "text-earth-gray dark:text-gray-400 hover:text-forest-green dark:hover:text-sage-green"
               }`}
             >
               <motion.span
@@ -153,23 +154,23 @@ export const Navbar = () => {
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="dark:border-[#2a2b2f] dark:bg-[#1a1b1e]"
+            className="border-forest-green/20 bg-beige dark:border-forest-green/20 dark:bg-deep-forest"
           >
             <div className="flex flex-col space-y-4 mt-8">
-              <Link href="/" className="text-lg font-semibold mb-6">
+              <Link href="/" className="text-lg font-semibold mb-6 text-forest-green dark:text-sage-green font-display">
                 Atelier Luxe
               </Link>
               {categories.map((category) => (
                 <Link
                   key={category.name}
                   href={category.path}
-                  className="py-2 text-sm font-medium hover:text-primary transition-colors"
+                  className="py-2 text-sm font-medium text-earth-gray dark:text-gray-400 hover:text-forest-green dark:hover:text-sage-green transition-colors"
                 >
                   {category.name}
                 </Link>
               ))}
-              <div className="pt-4 mt-4 border-t dark:border-[#2a2b2f]">
-                <p className="text-sm font-medium mb-2">Theme</p>
+              <div className="pt-4 mt-4 border-t border-forest-green/20 dark:border-forest-green/20">
+                <p className="text-sm font-medium mb-2 text-forest-green dark:text-sage-green">Theme</p>
                 <ThemeToggle />
               </div>
             </div>
@@ -186,15 +187,15 @@ export const Navbar = () => {
           <ThemeToggle
             className={
               isHomePage && !scrolled
-                ? "text-white hover:text-white hover:bg-white/10"
-                : ""
+                ? "text-white hover:text-primary hover:bg-transparent"
+                : "hover:text-primary hover:bg-transparent"
             }
           />
           <SearchDialog
             className={
               isHomePage && !scrolled
-                ? "text-white hover:text-white hover:bg-white/10"
-                : ""
+                ? "text-white hover:text-primary hover:bg-transparent"
+                : "hover:text-primary hover:bg-transparent"
             }
           />
           <Button
@@ -203,8 +204,8 @@ export const Navbar = () => {
             aria-label="Account"
             className={
               isHomePage && !scrolled
-                ? "text-white hover:text-white hover:bg-white/10"
-                : ""
+                ? "text-white hover:text-primary hover:bg-transparent"
+                : "hover:text-primary hover:bg-transparent"
             }
           >
             <User size={20} />
@@ -215,8 +216,8 @@ export const Navbar = () => {
             aria-label="Cart"
             className={
               isHomePage && !scrolled
-                ? "text-white hover:text-white hover:bg-white/10"
-                : ""
+                ? "text-white hover:text-primary hover:bg-transparent"
+                : "hover:text-primary hover:bg-transparent"
             }
             asChild
           >

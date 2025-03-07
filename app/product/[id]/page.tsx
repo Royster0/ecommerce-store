@@ -140,7 +140,7 @@ export default function ProductDetail({
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`block w-16 lg:w-full aspect-square relative rounded-md overflow-hidden border-2 transition-all ${
+                  className={`block w-16 lg:w-full aspect-square relative overflow-hidden border transition-all ${
                     currentImageIndex === index
                       ? "border-primary"
                       : "border-transparent hover:border-gray-200"
@@ -158,7 +158,7 @@ export default function ProductDetail({
 
             {/* Main Image */}
             <div className="order-1 lg:order-2 lg:flex-1 relative">
-              <div className="aspect-[3/4] relative rounded-lg overflow-hidden">
+              <div className="aspect-[3/4] relative overflow-hidden border">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentImageIndex}
@@ -179,13 +179,13 @@ export default function ProductDetail({
                 </AnimatePresence>
 
                 {product.isNew && (
-                  <div className="absolute top-4 left-4 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                  <div className="absolute top-4 left-4 bg-black text-white text-xs font-medium px-2 py-1 font-display">
                     New
                   </div>
                 )}
 
                 {product.onSale && (
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded">
+                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 font-display">
                     Sale
                   </div>
                 )}
@@ -199,7 +199,7 @@ export default function ProductDetail({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="text-3xl font-light mb-2">{product.name}</h1>
+            <h1 className="text-3xl font-medium mb-2 font-display">{product.name}</h1>
 
             {/* Rating */}
             {product.rating && (
@@ -244,7 +244,7 @@ export default function ProductDetail({
             {/* Colors */}
             {product.colors && product.colors.length > 0 && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">
+                <h3 className="text-sm font-medium mb-3 font-display">
                   Color: {selectedColor}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -252,7 +252,7 @@ export default function ProductDetail({
                     <button
                       key={color}
                       onClick={() => setSelectedColor(color)}
-                      className={`h-8 px-3 text-xs rounded-full transition-colors ${
+                      className={`h-8 px-3 text-xs transition-colors ${
                         selectedColor === color
                           ? "bg-primary text-primary-foreground"
                           : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -269,7 +269,7 @@ export default function ProductDetail({
             {product.sizes && product.sizes.length > 0 && (
               <div className="mb-8">
                 <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-sm font-medium">Size: {selectedSize}</h3>
+                  <h3 className="text-sm font-medium font-display">Size: {selectedSize}</h3>
                   <Button
                     variant="link"
                     size="sm"
@@ -283,7 +283,7 @@ export default function ProductDetail({
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`min-w-[3rem] h-10 flex items-center justify-center text-sm rounded-md transition-colors ${
+                      className={`min-w-[3rem] h-10 flex items-center justify-center text-sm transition-colors ${
                         selectedSize === size
                           ? "bg-primary text-primary-foreground"
                           : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -298,7 +298,7 @@ export default function ProductDetail({
 
             {/* Quantity */}
             <div className="mb-8">
-              <h3 className="text-sm font-medium mb-3">Quantity</h3>
+              <h3 className="text-sm font-medium mb-3 font-display">Quantity</h3>
               <div className="flex items-center">
                 <Button
                   variant="outline"
@@ -391,7 +391,7 @@ export default function ProductDetail({
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-light mb-4">You May Also Like</h2>
+            <h2 className="text-2xl font-medium mb-4 font-display">You May Also Like</h2>
           </motion.div>
 
           <FeaturedProducts />

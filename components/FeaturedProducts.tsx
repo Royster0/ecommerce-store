@@ -48,7 +48,7 @@ export default function FeaturedProducts() {
               />
 
               {product.isNew && (
-                <div className="absolute top-4 left-4 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                <div className="absolute top-4 left-4 bg-forest-green text-white text-xs font-medium px-2 py-1 font-display">
                   New
                 </div>
               )}
@@ -60,7 +60,7 @@ export default function FeaturedProducts() {
               >
                 <div className="flex gap-2 w-full">
                   <Button
-                    className="flex-1 gap-1 bg-white text-black hover:bg-white/90"
+                    className="flex-1 gap-1 bg-white text-forest-green hover:bg-white/90 border border-forest-green/20"
                     size="sm"
                     onClick={(e) => {
                       e.preventDefault();
@@ -92,7 +92,7 @@ export default function FeaturedProducts() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="bg-white/20 border-white/40 text-white hover:bg-white/30"
+                    className="bg-forest-green text-white hover:bg-forest-green/90 border-forest-green"
                   >
                     <Heart size={16} />
                   </Button>
@@ -102,13 +102,13 @@ export default function FeaturedProducts() {
 
             <CardContent className="p-4">
               <Link href={`/product/${product.id}`} className="block group">
-                <h3 className="font-medium group-hover:text-primary transition-colors">
+                <h3 className="font-medium group-hover:text-forest-green dark:group-hover:text-sage-green transition-colors font-display">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground text-sm mt-1">
+                <p className="text-earth-gray dark:text-gray-400 text-sm mt-1">
                   {product.category}
                 </p>
-                <p className="mt-2 font-medium">${product.price.toFixed(2)}</p>
+                <p className="mt-2 font-medium text-forest-green dark:text-sage-green">${product.price.toFixed(2)}</p>
               </Link>
             </CardContent>
           </Card>
