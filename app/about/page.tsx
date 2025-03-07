@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -129,12 +130,12 @@ export default function AboutPage() {
             We invite you to explore our collections and experience the difference that 
             thoughtful design and quality craftsmanship make.
           </p>
-          <a 
+          <Link 
             href="/category/all" 
             className="inline-flex h-10 items-center justify-center px-6 py-2 bg-forest-green text-white dark:bg-forest-dark shadow-md hover:bg-forest-green/90 dark:hover:bg-forest-dark/90 transition-colors"
           >
             Explore Our Collections
-          </a>
+          </Link>
         </div>
       </section>
     </main>
