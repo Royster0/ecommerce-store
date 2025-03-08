@@ -34,7 +34,11 @@ type ColorFilter = string[];
 type SizeFilter = string[];
 type PriceFilter = [number, number];
 
-export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+export default function CategoryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = React.use(params);
   const [filteredProducts, setFilteredProducts] = useState(featuredProducts);
   const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
@@ -159,7 +163,9 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-medium mb-4 font-display">{categoryName}</h1>
+          <h1 className="text-4xl font-medium mb-4 font-display">
+            {categoryName}
+          </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover our curated collection of{" "}
             {slug === "featured" ? "featured items" : slug} crafted with premium
@@ -575,7 +581,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="text-sm p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700"
+                  className="text-sm p-2 border rounded-md dark:bg-forest-green dark:border-gray-700"
                 >
                   <option value="newest">Newest</option>
                   <option value="price-low-high">Price: Low to High</option>
@@ -584,7 +590,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
               </div>
             </div>
 
-          {/* Products Grid */}
+            {/* Products Grid */}
             {filteredProducts.length === 0 ? (
               <motion.div
                 className="text-center py-12"

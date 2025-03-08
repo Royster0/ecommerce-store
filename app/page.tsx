@@ -144,7 +144,9 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Featured Collection</h2>
+            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">
+              Featured Collection
+            </h2>
             <p className="text-earth-gray dark:text-gray-400 max-w-xl mx-auto">
               Curated pieces that define modern elegance and timeless style,
               crafted with exceptional materials and attention to detail.
@@ -183,7 +185,9 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Shop By Category</h2>
+            <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">
+              Shop By Category
+            </h2>
             <p className="text-earth-gray dark:text-gray-400 max-w-xl mx-auto">
               Explore our curated collections for every occasion and style
               preference.
@@ -240,7 +244,9 @@ export default function HomePage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">Join Our Community</h2>
+                <h2 className="text-3xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">
+                  Join Our Community
+                </h2>
                 <p className="mb-6 text-earth-gray dark:text-gray-400">
                   Subscribe to our newsletter and be the first to know about new
                   collections, exclusive offers, and styling inspiration.
@@ -249,10 +255,15 @@ export default function HomePage() {
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="bg-white dark:bg-gray-800 px-4 py-3 flex-grow focus:outline-none border border-forest-green/20 dark:border-forest-green/20"
+                    className="bg-white px-4 py-3 flex-grow focus:outline-none border border-forest-green/20 dark:border-forest-green/20"
                     required
                   />
-                  <Button type="submit" className="bg-forest-green text-white hover:bg-forest-green/90 dark:bg-forest-dark">Subscribe</Button>
+                  <Button
+                    type="submit"
+                    className="bg-forest-green text-white hover:bg-forest-green/90 dark:bg-forest-dark"
+                  >
+                    Subscribe
+                  </Button>
                 </form>
               </motion.div>
 
@@ -263,13 +274,24 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-medium mb-2 font-display text-forest-green dark:text-sage-green">First Order Offer</h3>
-                <p className="text-5xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">20% OFF</p>
-                <p className="mb-6 text-sm text-earth-gray dark:text-gray-400">
-                  Use code <span className="font-medium text-forest-green dark:text-sage-green">WELCOME20</span> at
-                  checkout
+                <h3 className="text-xl font-medium mb-2 font-display text-forest-green dark:text-sage-green">
+                  First Order Offer
+                </h3>
+                <p className="text-5xl font-medium mb-4 font-display text-forest-green dark:text-sage-green">
+                  20% OFF
                 </p>
-                <Button asChild variant="outline" className="border-forest-green text-forest-green hover:bg-forest-green hover:text-white dark:border-sage-green dark:text-sage-green dark:hover:bg-sage-green dark:hover:text-deep-forest">
+                <p className="mb-6 text-sm text-earth-gray dark:text-gray-400">
+                  Use code{" "}
+                  <span className="font-medium text-forest-green dark:text-sage-green">
+                    WELCOME20
+                  </span>{" "}
+                  at checkout
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-forest-green text-forest-green hover:bg-forest-green hover:text-white dark:border-sage-green dark:text-sage-green dark:hover:bg-sage-green dark:hover:text-deep-forest"
+                >
                   <Link href="/category/featured">Shop Now</Link>
                 </Button>
               </motion.div>

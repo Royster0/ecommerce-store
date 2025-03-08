@@ -15,7 +15,9 @@ const Footer = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">Atelier Luxe</h4>
+          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">
+            Atelier Luxe
+          </h4>
           <p className="text-sm text-earth-gray dark:text-gray-400">
             Redefining modern fashion with timeless elegance and sustainable
             craftsmanship. Our premium clothing and accessories embody luxury
@@ -29,7 +31,9 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">Shop</h4>
+          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">
+            Shop
+          </h4>
           <ul className="space-y-2">
             <li>
               <Link
@@ -72,7 +76,9 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">Help</h4>
+          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">
+            Help
+          </h4>
           <ul className="space-y-2">
             <li>
               <Link
@@ -115,7 +121,9 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">Connect</h4>
+          <h4 className="text-lg font-semibold mb-4 text-forest-green dark:text-sage-green font-display">
+            Connect
+          </h4>
           <div className="flex space-x-4 mb-4">
             <Link
               href="https://instagram.com"
@@ -154,7 +162,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Your email"
-              className="bg-white dark:bg-gray-800 px-3 py-2 text-sm w-full focus:outline-none border border-forest-green/20 dark:border-forest-green/20"
+              className="bg-white px-3 py-2 text-sm w-full focus:outline-none border border-forest-green/20 dark:border-forest-green/20"
             />
             <button
               type="submit"
