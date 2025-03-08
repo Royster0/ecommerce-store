@@ -99,7 +99,9 @@ export const Navbar = () => {
         <Link href="/" className="flex items-center">
           <motion.div
             className={`text-2xl font-semibold tracking-tight font-display ${
-              isHomePage && !scrolled ? "text-white" : "text-forest-green dark:text-sage-green"
+              isHomePage && !scrolled
+                ? "text-white"
+                : "text-forest-green dark:text-sage-green"
             }`}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,48 +138,7 @@ export const Navbar = () => {
           ))}
         </motion.nav>
 
-        {/* Mobile Menu Trigger */}
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button
-              variant="outline"
-              size="icon"
-              className={
-                isHomePage && !scrolled
-                  ? "text-white border-white/30 hover:text-white hover:bg-white/10"
-                  : ""
-              }
-            >
-              <Menu size={20} />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="left"
-            className="border-forest-green/20 bg-beige dark:border-forest-green/20 dark:bg-deep-forest"
-          >
-            <div className="flex flex-col space-y-4 mt-8">
-              <Link href="/" className="text-lg font-semibold mb-6 text-forest-green dark:text-sage-green font-display">
-                Atelier Luxe
-              </Link>
-              {categories.map((category) => (
-                <Link
-                  key={category.name}
-                  href={category.path}
-                  className="py-2 text-sm font-medium text-earth-gray dark:text-gray-400 hover:text-forest-green dark:hover:text-sage-green transition-colors"
-                >
-                  {category.name}
-                </Link>
-              ))}
-              <div className="pt-4 mt-4 border-t border-forest-green/20 dark:border-forest-green/20">
-                <p className="text-sm font-medium mb-2 text-forest-green dark:text-sage-green">Theme</p>
-                <ThemeToggle />
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
-
-        {/* Icons */}
+        {/* Icons (only Search and Cart shown on mobile) */}
         <motion.div
           className="flex items-center space-x-2"
           initial={{ opacity: 0, y: -20 }}
@@ -185,11 +146,11 @@ export const Navbar = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <ThemeToggle
-            className={
+            className={`hidden md:flex ${
               isHomePage && !scrolled
                 ? "text-white hover:text-primary hover:bg-transparent"
                 : "hover:text-primary hover:bg-transparent"
-            }
+            }`}
           />
           <SearchDialog
             className={
@@ -202,11 +163,11 @@ export const Navbar = () => {
             variant="ghost"
             size="icon"
             aria-label="Account"
-            className={
+            className={`hidden md:flex ${
               isHomePage && !scrolled
                 ? "text-white hover:text-primary hover:bg-transparent"
                 : "hover:text-primary hover:bg-transparent"
-            }
+            }`}
           >
             <User size={20} />
           </Button>
@@ -230,6 +191,54 @@ export const Navbar = () => {
               )}
             </Link>
           </Button>
+
+          {/* Mobile Menu Trigger - Now on the right */}
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button
+                variant="outline"
+                size="icon"
+                className={
+                  isHomePage && !scrolled
+                    ? "text-white border-none bg-white/30 hover:text-white hover:bg-white/10"
+                    : ""
+                }
+              >
+                <Menu size={20} />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="border-forest-green/20 bg-beige dark:border-forest-green/20 dark:bg-deep-forest"
+            >
+              <div className="flex flex-col space-y-4 mt-8">
+                <Link
+                  href="/"
+                  className="text-lg font-semibold mb-6 text-forest-green dark:text-sage-green font-display"
+                >
+                  Atelier Luxe
+                </Link>
+                {categories.map((category) => (
+                  <Link
+                    key={category.name}
+                    href={category.path}
+                    className="py-2 text-sm font-medium text-earth-gray dark:text-gray-400 hover:text-forest-green dark:hover:text-sage-green transition-colors"
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+                <div className="flex items-center py-2">
+                  <span className="text-sm font-medium text-earth-gray dark:text-gray-400 mr-2">
+                    Account
+                  </span>
+                </div>
+                <div className="pt-4 mt-4 border-t border-forest-green/20 dark:border-forest-green/20">
+                  <ThemeToggle />
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </motion.div>
       </div>
     </motion.header>
